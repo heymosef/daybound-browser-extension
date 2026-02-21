@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Daybound</title>
+    <style>
+      /* Critical inline styles to avoid FOUC.
+         The shell reads stored theme settings and applies a matching
+         background BEFORE the iframe even starts loading. */
+      :root {
+        --shell-bg: #ffffff;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--shell-bg);
+        transition: background-color 0.2s;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      /* Loading spinner (shown briefly while iframe loads) */
+      #shell-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: opacity 0.2s;
+      }
+      #shell-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .spinner {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-bottom-color: var(--shell-accent, #6366f1);
+        animation: spin 0.6s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div id="shell-loader"><div class="spinner"></div></div>
+    <iframe id="app-frame" src="" allow="clipboard-write"></iframe>
+    <script src="shell.js"></script>
+  </body>
+</html>
