@@ -134,8 +134,12 @@ export function registerSquircle(): void {
     });
     const url = URL.createObjectURL(blob);
     // @ts-ignore – paintWorklet is not in the TS lib types
-    CSS.paintWorklet.addModule(url);
-    registered = true;
+    (CSS.paintWorklet as any).addModule(url).then(() => {
+      registered = true;
+      document.documentElement.classList.add("squircle-ready");
+    }).catch(() => {
+      // CSP in Chrome extensions blocks blob: worklet modules — degrade gracefully
+    });
   } catch {
     // Silently fail — elements will keep normal border-radius
   }

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Daybound",
+  "version": "1.0.0",
+  "description": "A clean, minimal timezone dashboard for your New Tab page.",
+  "chrome_url_overrides": {
+    "newtab": "shell.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Daybound"
+  }
+}

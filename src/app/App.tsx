@@ -19,7 +19,6 @@ import {
 } from "motion/react";
 import { registerSquircle } from "../utils/squircle";
 import Daybound from "../imports/Daybound";
-import { OtaUpdater } from "./components/OtaUpdater";
 
 // Register the squircle paint worklet
 registerSquircle();
@@ -508,8 +507,6 @@ function App() {
           </div>
         </main>
       </div>
-      {/* Background OTA update checker — renders nothing, never blocks paint */}
-      <OtaUpdater />
     </MotionConfig>
   );
 }

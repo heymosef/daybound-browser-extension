@@ -737,18 +737,15 @@
  * Falls back to normal border-radius in browsers without Paint API support.
  */
 @supports (mask-image: paint(squircle)) {
-  /* All Tailwind rounded-* classes and inline border-radius */
-  [class*="rounded"],
-  [style*="border-radius"] {
+  /* Only activate when the worklet has actually loaded (JS adds .squircle-ready) */
+  .squircle-ready [class*="rounded"],
+  .squircle-ready [style*="border-radius"] {
     --squircle-smooth: 1;
     mask-image: paint(squircle);
     -webkit-mask-image: paint(squircle);
   }
 
-  /* Opt-out: elements that need visible box-shadow (dropdowns, popovers)
-   * get normal border-radius instead of the squircle mask so their
-   * shadows aren't clipped. */
-  [data-no-squircle] {
+  .squircle-ready [data-no-squircle] {
     mask-image: none !important;
     -webkit-mask-image: none !important;
   }

@@ -1,6 +1,6 @@
 # Daybound Extension
 
-This is a Chrome Extension that replaces your New Tab page with a timezone dashboard.
+This is a browser extension that replaces your New Tab page with a timezone dashboard.
 
 ## Installation
 

@@ -10,7 +10,7 @@
     "storage"
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; frame-src https://app.daybound.com https://*.daybound.com"
+    "extension_pages": "script-src 'self'; object-src 'self'"
   },
   "icons": {
     "16": "icon16.png",
@@ -19,6 +19,12 @@
     "128": "icon128.png"
   },
   "action": {
-    "default_icon": "icon128.png"
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Daybound"
   }
 }
